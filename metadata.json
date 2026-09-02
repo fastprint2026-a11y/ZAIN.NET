@@ -1,0 +1,8 @@
+{
+  "name": "ZAIN.NET Academic Hub",
+  "description": "A repository offering academic theses, articles, and papers to support students and researchers in their educational endeavors.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

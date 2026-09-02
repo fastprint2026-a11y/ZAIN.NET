@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with quota, favorites and loyalty status",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" }
+      }
+    },
+    "UserDocument": {
+      "title": "UserDocument",
+      "description": "Academic drafts, essays, and articles created by user",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "toolId": { "type": "string" },
+        "toolTitle": { "type": "string" },
+        "categoryTitle": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "notes": { "type": "string" },
+        "wordCount": { "type": "number" },
+        "fileType": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "UserPurchase": {
+      "title": "UserPurchase",
+      "description": "Midtrans payment records and quota fulfillment",
+      "type": "object",
+      "properties": {
+        "orderId": { "type": "string" },
+        "userId": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "itemId": { "type": "string" },
+        "itemTitle": { "type": "string" },
+        "itemType": { "type": "string" },
+        "amount": { "type": "number" },
+        "purchasedAt": { "type": "number" },
+        "status": { "type": "string" },
+        "paymentType": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User root document"
+    },
+    "/users/{userId}/documents/{documentId}": {
+      "schema": "UserDocument",
+      "description": "Saved academic documents and drafts"
+    },
+    "/transactions/{trxId}": {
+      "schema": "UserPurchase",
+      "description": "Global transactions log for accounting and analytics"
+    }
+  }
+}
